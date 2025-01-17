@@ -6,16 +6,20 @@ https://github.com/comfyanonymous/ComfyUI
 
 This docker image includes ComfyUI Node Manager as well. https://github.com/ltdrdata/ComfyUI-Manager
 
-
-
 ## Building
 
 ```shell
 export CUDA_VERSION=12.4.0
-docker build --build-arg --build-arg CUDA_VERSION=$CUDA_VERSION -t sdnext:cuda-$CUDA_VERSION .
+export COMFY_VERSION=v.0.3.10
+docker build --build-arg COMFY_VERSION=$COMFY_VERSION \
+        --build-arg CUDA_VERSION=$CUDA_VERSION \
+        -t comfyui:$COMFY_VERSION-cuda-$CUDA_VERSION .
 ```
 
 ```powershell
 $CUDA_VERSION="12.4.0"
-docker build --build-arg CUDA_VERSION=$CUDA_VERSION -t sdnext:cuda-$CUDA_VERSION .
+$COMFY_VERSION="v.0.3.10"
+docker build --build-arg COMFY_VERSION=$COMFY_VERSION \
+        --build-arg CUDA_VERSION=$CUDA_VERSION \
+        -t comfyui:$COMFY_VERSION-cuda-$CUDA_VERSION .
 ```
