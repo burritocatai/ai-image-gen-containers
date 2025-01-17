@@ -1,0 +1,33 @@
+services:
+  comfyui:
+    image: ghcr.io/burritocatai/comfyui:0.3.10-cuda-12.4
+    container_name: comfyui
+    hostname: "comfyui"
+    ports:
+      - "8082:8082/tcp"
+    volumes:
+      - "./comfyui_models:/comfyui/ComfyUI/models"
+      - "./comfyui_nodes:/comfyui/ComfyUI/custom_nodes"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  sdnext:
+    container_name: sdnext
+    hostname: "sdnext"
+    image: ghcr.io/burritocatai/sdnext:cuda-12.4
+    ports:
+      - "7860:7860/tcp"
+    volumes:
+      - "./comfyui_models:/sdnext/automatic/models"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
