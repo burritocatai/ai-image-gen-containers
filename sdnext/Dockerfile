@@ -3,7 +3,7 @@ ARG CUDA_VERSION=12.4.0
 FROM nvidia/cuda:${CUDA_VERSION}-runtime-ubuntu22.04
 
 # Set author label
-LABEL org.opencontainers.image.authors="dwiseman"
+LABEL org.opencontainers.image.authors="danwiseman"
 LABEL org.opencontainers.image.base.name="https://hub.docker.com/nvidia/cuda:${CUDA_VERSION}-runtime-ubuntu22.04"
 LABEL org.opencontainers.image.source="https://github.com/burritocatai/ai-image-gen-containers"
 
