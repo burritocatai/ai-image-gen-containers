@@ -19,10 +19,14 @@ RUN apt update && \
     apt install -y --no-install-recommends \
     git python3 python3.10-venv python3-dev \
     build-essential libssl-dev libffi-dev \
-    libxml2-dev libxslt1-dev zlib1g-dev libgl1 && \
+    libxml2-dev libxslt1-dev zlib1g-dev libgl1 \
+    libgl1-mesa-glx \
+    libglib2.0-0 && \
+    rm -rf /var/lib/apt/lists/* && \
     useradd comfyui && \
     mkdir comfyui && \
     mkdir comfyui/cache
+
 
 COPY ./start.sh /comfyui/start.sh
 
